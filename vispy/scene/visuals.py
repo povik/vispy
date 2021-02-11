@@ -47,9 +47,9 @@ class VisualNode(Node):
         If *clipper* is None, then remove any clippers for *node*.
         """
         if node in self._clippers:
-            self.detach(self._clippers.pop(node))
+            self.detach(self._clippers.pop(node), view=self)
         if clipper is not None:
-            self.attach(clipper)
+            self.attach(clipper, view=self)
             self._clippers[node] = clipper
 
     @property
